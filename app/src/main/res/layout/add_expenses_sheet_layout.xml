@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/add_expenses_sheet"
+    android:orientation="vertical"
+    android:background="@drawable/bottom_sheet_dialoge"
+    android:padding="@dimen/standered_margin">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/textColorEarthquakeDetails"
+        android:textSize="12sp"
+        android:text="Amount*" />
+    <EditText android:id="@+id/ex_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="@dimen/standered_margin"
+        android:text="1"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/textColorEarthquakeDetails"
+        android:textSize="12sp"
+        android:text="Price*" />
+    <EditText android:id="@+id/ex_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="@dimen/standered_margin"
+        tools:text="2000"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/textColorEarthquakeDetails"
+        android:textSize="12sp"
+        android:text="Description*" />
+    <EditText android:id="@+id/ex_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="150dp"
+        android:maxLength="24"
+        android:layout_marginBottom="@dimen/standered_margin"
+        tools:text="Macbook pro"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/textColorEarthquakeDetails"
+        android:textSize="12sp"
+        android:text="Date*" />
+    <EditText android:id="@+id/ex_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="150dp"
+        android:drawableEnd="@drawable/ic_baseline_calendar_today_24"
+        android:layout_marginBottom="@dimen/standered_margin"
+        tools:text="15/06/2020"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/textColorEarthquakeDetails"
+        android:textSize="12sp"
+        android:text="time*" />
+    <EditText android:id="@+id/ex_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="150dp"
+        android:drawableEnd="@drawable/ic_baseline_calendar_today_24"
+        android:layout_marginBottom="@dimen/standered_margin"
+        tools:text="10:30 PM"/>
+    <Spinner android:id="@+id/ex_cat"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginEnd="150dp"
+        android:entries="@array/categories"
+        />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginEnd="153dp"
+        android:layout_marginStart="3dp"
+        android:background="#6F7173" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/standered_margin"
+        android:layout_marginTop="24dp"
+        android:gravity="top|center_horizontal">
+        <Button android:id="@+id/sheet_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/button_shap_1"
+            android:layout_marginEnd="30dp"
+            android:text="Close"
+            />
+        <Button android:id="@+id/sheet_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:textColor="@color/colorFGWhite"
+            android:background="@drawable/button_shap_2"
+            android:layout_marginEnd="30dp"
+            android:text="Delete"
+            />
+
+
+        <Button android:id="@+id/sheet_save"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/button_shap_3"
+            android:textColor="@color/colorFGWhite"
+            android:text="Save" />
+    </LinearLayout>
+
+
+</LinearLayout>

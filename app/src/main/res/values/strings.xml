@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Expenses Tracker</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delete">Delete</string>
+    <string name="done">Done</string>
+
+    <string-array name="categories">
+        <item>Restaurants</item>
+        <item>Shopping</item>
+        <item>Groceries</item>
+        <item>Entertainment</item>
+        <item>Healthy</item>
+        <item>Others</item>
+
+    </string-array>
+</resources>
