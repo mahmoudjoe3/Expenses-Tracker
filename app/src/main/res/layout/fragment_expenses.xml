@@ -23,32 +23,48 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="This month you've spent:"
+                android:text="@string/today_you_ve_spent"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="@color/colorBlack"
                 android:layout_margin="@dimen/standered_margin"/>
-            <TextView android:id="@+id/totalSpent_this_month"
+            <TextView android:id="@+id/totalSpent_today"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="$2,541"
+                tools:text="$2,541"
                 android:gravity="center_horizontal"
                 android:textColor="@color/material_green_a200"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"/>
+            <TextView android:id="@+id/totalSpent_this_month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="This month you've spent: $5,002"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:layout_marginTop="@dimen/standered_margin"
+                android:layout_marginStart="@dimen/standered_margin"
+                />
             <TextView android:id="@+id/totalSpent_previous_month"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Previous month: $410"
+                tools:text="Previous months: $410"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:layout_margin="@dimen/standered_margin"/>
+                android:layout_marginStart="@dimen/standered_margin"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminateOnly="true"
+        android:visibility="gone"
+        android:layout_below="@id/cardy"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ex_recycle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
-        android:layout_below="@id/cardy"/>
+        android:layout_below="@id/progressBar"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/ex_addButtom"

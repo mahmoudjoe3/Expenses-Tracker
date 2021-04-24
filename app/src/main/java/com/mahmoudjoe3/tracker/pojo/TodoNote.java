@@ -1,12 +1,17 @@
 package com.mahmoudjoe3.tracker.pojo;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class TodoNote {
-    private String id;
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private String note;
     private boolean done;
     private long time;
 
-    public TodoNote(String id, String note) {
+    public TodoNote(String note) {
         this.id = id;
         this.note = note;
         this.done = false;
@@ -25,11 +30,11 @@ public class TodoNote {
         this.done = done;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -13,7 +13,8 @@
         <TextView android:id="@+id/it_note"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="this is my first note i3hu juhfuhu uhdu3wuf ufugfg uhfug3ufg uhfug3hub uh3fuhfuh  u3hfuh3u u3hfu3huh"
+            tools:text="this is my first note"
+            android:gravity="center_vertical"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:minHeight="?actionBarSize"
@@ -36,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:text="OCT 30, 2010"
+                tools:text="OCT 30, 2010"
                 android:textColor="@color/textColorEarthquakeDetails"
                 android:textSize="12sp" />
 

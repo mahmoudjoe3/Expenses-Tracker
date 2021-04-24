@@ -10,7 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mahmoudjoe3.tracker.R;
+import com.mahmoudjoe3.tracker.pojo.Expense;
 import com.mahmoudjoe3.tracker.pojo.TodoNote;
+import com.mahmoudjoe3.tracker.ui.fragments.expenses.ExpensesAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,8 +23,8 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.VH> {
 
     List<TodoNote> noteList;
 
-    public ToDoAdapter(List<TodoNote> noteList) {
-        this.noteList = noteList;
+    public ToDoAdapter() {
+        this.noteList = new ArrayList<>();
     }
 
     public void setNoteList(List<TodoNote> noteList) {
@@ -42,6 +44,10 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.VH> {
         return n;
     }
 
+    public TodoNote getNote(int pos){
+        return noteList.get(pos);
+    }
+
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -58,6 +64,12 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.VH> {
         String time = timeFormat.format(new Date(todoNote.getTime()));
         holder.time.setText(time);
         holder.date.setText(date);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickListener.onCLick(todoNote);
+            }
+        });
         if(todoNote.isDone()){
             holder.note.setPaintFlags(holder.note.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         }
@@ -78,5 +90,15 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.VH> {
             time=itemView.findViewById(R.id.it_time);
             date=itemView.findViewById(R.id.it_date);
         }
+    }
+
+    OnClickListener onClickListener;
+
+    public void setOnClickListener(OnClickListener onClickListener) {
+        this.onClickListener = onClickListener;
+    }
+
+    interface OnClickListener{
+        void onCLick(TodoNote note);
     }
 }

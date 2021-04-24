@@ -6,40 +6,42 @@
     android:orientation="vertical"
     android:background="@drawable/bottom_sheet_dialoge"
     android:padding="@dimen/standered_margin">
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <View android:id="@+id/v"
+        android:layout_width="50dp"
+        android:layout_height="3dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorHint"
+        android:layout_marginBottom="@dimen/standered_margin"
+        />
+    <Button android:id="@+id/sheet_save"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/button_shap_3"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/v"
+        android:textColor="@color/colorFGWhite"
+        android:text="@string/save" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter your ToDo Note"
+        android:layout_below="@id/v"
+        android:text="@string/enter_your_todo_note"
         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle" />
 
     <EditText android:id="@+id/sheet_note"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:hint="Note "
+        android:hint="@string/note"
+        android:layout_below="@id/sheet_save"
         android:gravity="bottom"
         android:layout_marginTop="@dimen/standered_margin"
         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle"
         android:textColor="@color/colorBlack" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="@dimen/standered_margin"
-        android:gravity="end">
-        <Button android:id="@+id/sheet_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:background="@drawable/button_shap"
-            android:layout_marginEnd="@dimen/standered_margin"
-            android:text="Cancel"
-        />
-        <Button android:id="@+id/sheet_save"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:background="@drawable/button_shap_3"
-            android:textColor="@color/colorFGWhite"
-            android:text="Save" />
-    </LinearLayout>
+
+</RelativeLayout>
 
 </LinearLayout>

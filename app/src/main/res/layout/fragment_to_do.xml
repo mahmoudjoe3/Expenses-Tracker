@@ -5,11 +5,21 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragments.toDo.ToDoFragment">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:indeterminateOnly="true"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/toDoRecycle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/todo_item_list"
+        android:layout_below="@id/progressBar"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         />
 

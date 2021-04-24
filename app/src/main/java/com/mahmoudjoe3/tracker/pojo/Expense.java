@@ -1,16 +1,22 @@
 package com.mahmoudjoe3.tracker.pojo;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Expense {
+    @PrimaryKey(autoGenerate = true)
     private Integer id;
     private int amount;
     private float price;
     private String description;
     private String date;
     private String time;
+    @ColumnInfo(name = "category")
     private String cat;
 
-    public Expense(Integer id, int amount, float price, String description, String date, String time, String cat) {
-        this.id = id;
+    public Expense( int amount, float price, String description, String date, String time, String cat) {
         this.amount = amount;
         this.price = price;
         this.description = description;

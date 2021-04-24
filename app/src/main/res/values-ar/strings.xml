@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">متابعى</string>
+    <string name="delete">حذف</string>
+    <string name="This_month_youve_spent">لقد انفقت هذا الشهر $</string>
+    <string name="previous_months">مجمل النفقات الاشهر الماضيه $</string>
+    <string name="save">حفظ</string>
+    <string name="update">تحديث</string>
+    <string name="Invalid_data">البيانات غير صالحه</string>
+    <string name="is">" "</string>
+    <string name="deleted">تم مسحها</string>
+    <string name="done">تم</string>
+    <string name="todo">المفكره</string>
+    <string name="expenses">النفقات</string>
+    <string name="close">اغلق</string>
+    <string name="time">الوقت*</string>
+    <string name="date">التاريخ *</string>
+    <string name="description">التفاصيل *</string>
+    <string name="price">السعر *</string>
+    <string name="amount">الكميه *</string>
+    <string name="enter_your_todo_note">ما الذى تفكر به</string>
+    <string name="note">المفكره</string>
+    <string name="today_you_ve_spent">ما تم انفاقه اليوم</string>
+
+    <string-array name="categories">
+        <item>المطاعم</item>
+        <item>التسوق</item>
+        <item>البقاله</item>
+        <item>الترفيه</item>
+        <item>الصحه</item>
+        <item>اخري</item>
+
+    </string-array>
+</resources>

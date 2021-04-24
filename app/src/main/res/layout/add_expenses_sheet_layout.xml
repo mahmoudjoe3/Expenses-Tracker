@@ -8,16 +8,24 @@
     android:background="@drawable/bottom_sheet_dialoge"
     android:padding="@dimen/standered_margin">
 
+    <View
+        android:layout_width="50dp"
+        android:layout_height="3dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorHint"
+        android:layout_marginBottom="@dimen/standered_margin"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/textColorEarthquakeDetails"
         android:textSize="12sp"
-        android:text="Amount*" />
+        android:text="@string/amount" />
     <EditText android:id="@+id/ex_amount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:layout_marginEnd="150dp"
         android:layout_marginBottom="@dimen/standered_margin"
         android:text="1"/>
@@ -27,11 +35,12 @@
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/textColorEarthquakeDetails"
         android:textSize="12sp"
-        android:text="Price*" />
+        android:text="@string/price" />
     <EditText android:id="@+id/ex_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="150dp"
+        android:inputType="numberDecimal"
         android:layout_marginBottom="@dimen/standered_margin"
         tools:text="2000"/>
     <TextView
@@ -40,12 +49,13 @@
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/textColorEarthquakeDetails"
         android:textSize="12sp"
-        android:text="Description*" />
+        android:text="@string/description" />
     <EditText android:id="@+id/ex_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="150dp"
         android:maxLength="24"
+        android:inputType="text"
         android:layout_marginBottom="@dimen/standered_margin"
         tools:text="Macbook pro"/>
     <TextView
@@ -54,7 +64,7 @@
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/textColorEarthquakeDetails"
         android:textSize="12sp"
-        android:text="Date*" />
+        android:text="@string/date" />
     <EditText android:id="@+id/ex_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -68,7 +78,7 @@
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/textColorEarthquakeDetails"
         android:textSize="12sp"
-        android:text="time*" />
+        android:text="@string/time" />
     <EditText android:id="@+id/ex_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -103,7 +113,7 @@
             android:layout_height="40dp"
             android:background="@drawable/button_shap_1"
             android:layout_marginEnd="30dp"
-            android:text="Close"
+            android:text="@string/close"
             />
         <Button android:id="@+id/sheet_delete"
             android:layout_width="wrap_content"
@@ -111,7 +121,7 @@
             android:textColor="@color/colorFGWhite"
             android:background="@drawable/button_shap_2"
             android:layout_marginEnd="30dp"
-            android:text="Delete"
+            android:text="@string/delete"
             />
 
 
@@ -120,7 +130,7 @@
             android:layout_height="40dp"
             android:background="@drawable/button_shap_3"
             android:textColor="@color/colorFGWhite"
-            android:text="Save" />
+            android:text="@string/save" />
     </LinearLayout>
 
 

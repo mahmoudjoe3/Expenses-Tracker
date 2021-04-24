@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
         ViewpagerAdapter pagerAdapter = new ViewpagerAdapter(getSupportFragmentManager()
                 , FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        pagerAdapter.addFragment(ToDoFragment.newInstance(), "ToDo");
-        pagerAdapter.addFragment(ExpensesFragment.newInstance(), "Expenses");
+        pagerAdapter.addFragment(ToDoFragment.newInstance(), getString(R.string.todo));
+        pagerAdapter.addFragment(ExpensesFragment.newInstance(), getString(R.string.expenses));
         viewpager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(viewpager);
 

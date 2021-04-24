@@ -1,9 +1,25 @@
 <resources>
-    <string name="app_name">Expenses Tracker</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">TrackMe</string>
     <string name="delete">Delete</string>
+    <string name="This_month_youve_spent">This month you\'ve spent: $</string>
+    <string name="previous_months">Previous months: $</string>
+    <string name="save">save</string>
+    <string name="update">Update</string>
+    <string name="Invalid_data">Invalid data</string>
+    <string name="is">is</string>
+    <string name="deleted">deleted</string>
     <string name="done">Done</string>
+    <string name="todo">ToDo</string>
+    <string name="expenses">Expenses</string>
+    <string name="close">Close</string>
+    <string name="time">time*</string>
+    <string name="date">Date*</string>
+    <string name="description">Description*</string>
+    <string name="price">Price*</string>
+    <string name="amount">Amount*</string>
+    <string name="enter_your_todo_note">what are you thinking about</string>
+    <string name="note">Note</string>
+    <string name="today_you_ve_spent">Today you\'ve spent:</string>
 
     <string-array name="categories">
         <item>Restaurants</item>

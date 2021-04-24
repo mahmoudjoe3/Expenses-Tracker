@@ -2,6 +2,7 @@ package com.mahmoudjoe3.tracker.ui.fragments.expenses;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,24 +10,53 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mahmoudjoe3.tracker.R;
 import com.mahmoudjoe3.tracker.pojo.Expense;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class ExpensesAdapter extends RecyclerView.Adapter<ExpensesAdapter.VH> {
 
+    private static final String TAG = "check_time";
     List<Expense> expenseList;
     Context context;
-    public ExpensesAdapter(List<Expense> expenseList,Context context1) {
-        this.expenseList = expenseList;
+
+    private MutableLiveData<Float> monthly_spent=new MutableLiveData<>();
+    Float mon=0.0f;
+    public LiveData<Float> getMonthly_spent() {
+        monthly_spent.setValue(mon);
+        return monthly_spent;
+    }
+
+    private MutableLiveData<Float> pre_month_spent=new MutableLiveData<>();
+    Float pre_mon=0.0f;
+    public LiveData<Float> getPre_month_spent() {
+        pre_month_spent.setValue(pre_mon);
+        return pre_month_spent;
+    }
+
+    private MutableLiveData<Float> daily_spent=new MutableLiveData<>();
+    Float daily=0.0f;
+    public LiveData<Float> getDaily_spent() {
+        daily_spent.setValue(daily);
+        return daily_spent;
+    }
+
+    public ExpensesAdapter(Context context1) {
+        this.expenseList = new ArrayList<>();
         context=context1;
     }
 
     public void setExpenseList(List<Expense> expenseList) {
+        mon=0.0f;
+        daily=0.0f;
+        pre_mon=0.0f;
         if(expenseList ==null)
             expenseList =new ArrayList<>();
         this.expenseList = expenseList;
@@ -40,6 +70,19 @@ public class ExpensesAdapter extends RecyclerView.Adapter<ExpensesAdapter.VH> {
         Expense n= expenseList.get(pos);
         this.expenseList.remove(pos);
         notifyItemRemoved(pos);
+
+        if(iscurrentMonth(n)){
+            if(isCurrentDay(n)) {
+                daily-=(n.getPrice()*n.getAmount());
+                daily_spent.setValue(daily);
+            }
+            mon-=(n.getPrice()*n.getAmount());
+            monthly_spent.setValue(mon);
+        }else {
+            pre_mon -= (n.getPrice() * n.getAmount());
+            pre_month_spent.setValue(pre_mon);
+        }
+
         return n;
     }
 
@@ -55,8 +98,13 @@ public class ExpensesAdapter extends RecyclerView.Adapter<ExpensesAdapter.VH> {
         holder.note.setText(expense.getDescription());
         holder.time.setText(expense.getTime());
         holder.date.setText(expense.getDate());
+        //spent at this month
+
+        float cost=(expense.getAmount()*expense.getPrice());
+        setSpent(expense, cost);
+
         holder.cat.setText(expense.getCat());
-        holder.cost.setText("$"+(expense.getAmount()*expense.getPrice()));
+        holder.cost.setText("$"+cost);
 
         GradientDrawable magnitudeCircle = (GradientDrawable) holder.icon.getBackground();
         int megColor= getMagnitudeColorAndSetIcon(getCatPos(expense.getCat()),holder.icon);
@@ -69,6 +117,32 @@ public class ExpensesAdapter extends RecyclerView.Adapter<ExpensesAdapter.VH> {
             }
         });
     }
+
+    private void setSpent(Expense expense, float cost) {
+        if(iscurrentMonth(expense)){
+            if(isCurrentDay(expense)) {
+                daily+=cost;
+                daily_spent.setValue(daily);
+            }
+            mon+=cost;
+            monthly_spent.setValue(mon);
+        }else {
+            pre_mon +=cost;
+            pre_month_spent.setValue(pre_mon);
+        }
+    }
+
+    private boolean iscurrentMonth(Expense expense) {
+        Calendar c=Calendar.getInstance();
+        String datetxt= java.text.DateFormat.getDateInstance().format(c.getTime());
+        return datetxt.startsWith(expense.getDate().substring(0,3));
+    }
+    private boolean isCurrentDay(Expense expense) {
+        Calendar c=Calendar.getInstance();
+        String datetxt= java.text.DateFormat.getDateInstance().format(c.getTime());
+        return datetxt.equals(expense.getDate());
+    }
+
     @Override
     public int getItemCount() {
         return expenseList.size();
