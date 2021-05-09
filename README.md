@@ -1,8 +1,6 @@
 # Expenses-Tracker
 Expenses Tracker and ToDo list 
-# DataBase Room
-# MVVM
-# RxJava
+DataBase Room, MVVM, RxJava
 
 
 # preview
